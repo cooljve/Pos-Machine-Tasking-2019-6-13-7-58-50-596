@@ -89,3 +89,12 @@ it('should return receipts when invoke printReceipt given item 0001 0003 0005 00
       '------------------------------------------------------------\n' +
       'Price: 20');
 });
+
+it('should return Error message when invoke printReceipt given item 001 03 0005 0003', () => {
+  //give
+  const barcodes = ['001', '03', '0005', '0003'];
+  //when
+  const receipts = posMachine.printReceipt(barcodes, allItems);
+  //then
+  expect(receipts).toEqual('[ERROR]:The barcodes are not valid.');
+});
